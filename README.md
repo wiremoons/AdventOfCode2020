@@ -7,8 +7,8 @@ found here: https://adventofcode.com/2020
 
 Below links to each days puzzle I have solved so far:
 
-- [Day One - Part 1 solved with C++](./Day-01/aoc_day01_p1.cpp) and
-  [Day One - Part 2 solved with C++](./Day-01/aoc_day01_p2.cpp)
+- [Day One - Part 1 solved with C++](./Day-01/aoc_day01_p1.cc) and
+  [Day One - Part 2 solved with C++](./Day-01/aoc_day01_p2.cc)
 
 
 ## License
