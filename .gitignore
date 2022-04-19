@@ -1,0 +1,9 @@
+# AOC Git Ignore file
+
+# Clion IDE files
+.idea/
+
+# compiled (binary) version of solutions
+Day-??/aoc_day??_p1
+Day-??/aoc_day??_p2
+
