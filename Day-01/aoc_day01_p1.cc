@@ -39,12 +39,21 @@ int calculateProduct(std::vector<int> &expenses)
     int result{0};
     std::cout << "\n\nFinding correct expenses records (slow) to total '2020'..." << std::endl;
     for (size_t i{0}; i < expenses.size(); i++) {
+        if (debug) {
+            std::cout << "i is: " << expenses.at(i) << std::endl;
+        }
         for (size_t j{0}; j < expenses.size(); j++) {
+            if (debug) {
+                std::cout << "j is: " << expenses.at(j) << std::endl;
+            }
             if (expenses.at(i) + expenses.at(j) == 2020) {
                 std::cout << "Expense records: " << expenses.at(i) << " + " << expenses.at(j) << " = "
                           << expenses.at(i) + expenses.at(j) << std::endl;
                 return expenses.at(i) * expenses.at(j);
             }
+        }
+        if (debug) {
+            std::cout << std::endl;
         }
     }
 
@@ -94,7 +103,7 @@ int main()
 
     // variables to hold input data
     std::string line{};
-    std::vector<int> expenses{0};
+    std::vector<int> expenses{};
     int line_number{0};
     int answer{0};
 
