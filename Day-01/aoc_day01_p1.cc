@@ -131,9 +131,28 @@ int main()
     std::cout << "  » PUZZLE ANSWER: two entries that sum to 2020 multiplied together : " << answer << '\n'
               << std::endl;
 
+    input_file.close();
+    std::exit(0);
+
     // Part 1 TEST RESULT: 514579
     // Part 1 Answer : 567171
 
-    input_file.close();
-    std::exit(0);
+    // EXECUTION OUTPUT:
+    //
+    // % ./aoc_day01_p1
+    //
+    // Finding correct expenses records (slow) to total '2020'...
+    // Expense records: 337 + 1683 = 2020
+    // Answer (slow): 567171
+    // --> Time taken by function: 345208 nanoseconds
+    //
+    // Finding correct expenses records (fast) to total '2020'...
+    // Expense records: 337 + 1683 = 2020
+    // Answer (fast): 567171
+    // --> Time taken by function: 9959 nanoseconds
+    //
+    // Advent Of Code 2020 :  Day 01 Part 01
+    //
+    //   » Number of expenses entries analysed : '400'
+    //   » PUZZLE ANSWER: two entries that sum to 2020 multiplied together : 567171
 }
