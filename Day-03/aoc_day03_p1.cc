@@ -1,6 +1,6 @@
 /*
  * @file aoc_day03_p1.cc
- * @brief Advent of Code (AOC) 2020 Puzzle solution for:  Day 03 Part 1.
+ * @brief Advent of Code (AOC) 2020 Puzzle solution for:  Day 03 Part 01.
  *
  * @author Simon Rowe <simon@wiremoons.com>
  * @license open-source released under "MIT License"
@@ -24,9 +24,6 @@
 #include <string>
 #include <vector>
 
-// a r
-// 1,3 / 2,6 / 3,9 / 4,2  /
-// 1,3 / 2,6 / 3,9 / 4,12 /
 int getTreeCount(std::vector<std::string> const &tree_map, int const move_x, int const move_y)
 {
     int pos_x{0}, pos_y{0}, result{0};
@@ -98,8 +95,8 @@ int main()
     input_file.close();
     std::exit(0);
 
-    // Part 1 TEST RESULT: 7
-    // Part 1 Answer : 247
+    // Part 01 TEST RESULT: 7
+    // Part 01 Answer : 247
 
     // EXECUTION OUTPUT:
     //
