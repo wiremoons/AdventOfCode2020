@@ -106,6 +106,9 @@ int main()
     // puzzle input file stream
     std::ifstream input_file{};
 
+    // start timer for overall execution
+    auto t1 = std::chrono::high_resolution_clock::now();
+
     // Switch comments for 'test'  vs  'final' data file
     // input_file.open("./data/TEST-puzzle-input.txt", std::ios::in);
     input_file.open("./data/puzzle-input.txt", std::ios::in);
@@ -137,12 +140,10 @@ int main()
         occurs = -1;
     }
 
-    auto t1 = std::chrono::high_resolution_clock::now();
-    // function here
     auto t2 = std::chrono::high_resolution_clock::now();
-    auto duration_slow = duration_cast<std::chrono::nanoseconds>(t2 - t1);
+    auto duration_slow = duration_cast<std::chrono::microseconds>(t2 - t1);
     std::cout << "Answer: " << answer << std::endl;
-    std::cout << "--> Time taken by function: " << duration_slow.count() << " nanoseconds" << std::endl;
+    std::cout << "--> Time taken by function: " << duration_slow.count() << " microseconds" << std::endl;
 
     std::cout << std::endl << "Advent Of Code 2020 :  Day 02 Part 01" << '\n' << '\n';
     std::cout << "  » Number of password entries analysed : '" << line_number << "'" << '\n';
@@ -160,7 +161,7 @@ int main()
     // % ./aoc_day02_p1
     //
     //     Answer: 483
-    // --> Time taken by function: 42 nanoseconds
+    // --> Time taken by function:  4155 microseconds
     //
     // Advent Of Code 2020 :  Day 02 Part 01
     //
