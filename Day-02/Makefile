@@ -89,7 +89,8 @@ p2-debug: $(SRC_P2)
 
 # delete previous build binaries
 clean:
-	$(RM) $(OUT_P1)$(EXE_END) $(OUT_P2)$(EXE_END)
+	$(RM) -f $(OUT_P1)$(EXE_END) $(OUT_P2)$(EXE_END)
+	$(RM) -Rf $(OUT_P1).dSYM/ $(OUT_P2).dSYM/
 
 # run clang-format for each source file
 format:
