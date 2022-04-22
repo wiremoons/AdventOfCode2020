@@ -31,9 +31,8 @@
 /// @brief Extract the password element from the input file line: '1-3 a: abcde'
 /// @param line : the line of text read from the puzzle input file
 /// @ return the extracted password string
-using std::count;
 
-std::string getPasswordString(std::string &line)
+const std::string getPasswordString(std::string &line)
 {
     std::string result{};
 
@@ -52,7 +51,7 @@ std::string getPasswordString(std::string &line)
 /// @brief Extract the policy elements from the input file line: '1-3 a: abcde'
 /// @param line : the line of text read from the puzzle input file
 /// @ return the extracted policy range as a number pair
-std::pair<int, int> getPolicyPair(std::string &line)
+const std::pair<int, int> getPolicyPair(std::string &line)
 {
     std::pair<int, int> result{};
 
@@ -66,7 +65,8 @@ std::pair<int, int> getPolicyPair(std::string &line)
 
     if ((dash not_eq std::string::npos) and (space not_eq std::string::npos)) {
         try {
-            auto result = std::make_pair(std::stoi(line.substr(0, dash)), std::stoi(line.substr(dash + 1, space)));
+            auto const result =
+                std::make_pair(std::stoi(line.substr(0, dash)), std::stoi(line.substr(dash + 1, space)));
             return result;
         } catch (std::exception &e) {
             std::cerr << "ERROR: failed to find policy entries with exception: " << e.what() << std::endl;
@@ -79,7 +79,7 @@ std::pair<int, int> getPolicyPair(std::string &line)
 /// @brief Extract the policy elements from the input file line: '1-3 a: abcde'
 /// @param line : the line of text read from the puzzle input file
 /// @ return the extracted policy range as a number pair
-char getPolicyValue(std::string &line)
+const char getPolicyValue(std::string &line)
 {
     char result{};
 
@@ -91,7 +91,7 @@ char getPolicyValue(std::string &line)
     const size_t space = line.find_first_of(' ');
 
     if (space not_eq std::string::npos) {
-        result = line.at(space + 1);
+        const char result = line.at(space + 1);
         return result;
     }
     return result;
@@ -127,23 +127,21 @@ int main()
     // extract required parts and count valid passwords.
     while (std::getline(input_file, line)) {
         line_number++;
-        std::string password = getPasswordString(line);
-        [[maybe_unused]] std::pair<int, int> policy = getPolicyPair(line);
-        char policy_value = getPolicyValue(line);
+        std::string const password = getPasswordString(line);
+        [[maybe_unused]] std::pair<int, int> const policy = getPolicyPair(line);
+        char const policy_value = getPolicyValue(line);
 
-        size_t occurs = count(password.begin(), password.end(), policy_value);
+        size_t const occurs = count(password.begin(), password.end(), policy_value);
         // check if password is in the required policy range
         if ((occurs >= policy.first) and (occurs <= policy.second)) {
             answer++;
         }
-        // reset
-        occurs = -1;
     }
 
-    auto t2 = std::chrono::high_resolution_clock::now();
-    auto duration_slow = duration_cast<std::chrono::microseconds>(t2 - t1);
+    auto const t2 = std::chrono::high_resolution_clock::now();
+    auto const duration = duration_cast<std::chrono::microseconds>(t2 - t1);
     std::cout << "Answer: " << answer << std::endl;
-    std::cout << "--> Time taken by function: " << duration_slow.count() << " microseconds" << std::endl;
+    std::cout << "--> Time taken by function: " << duration.count() << " microseconds" << std::endl;
 
     std::cout << std::endl << "Advent Of Code 2020 :  Day 02 Part 01" << '\n' << '\n';
     std::cout << "  » Number of password entries analysed : '" << line_number << "'" << '\n';
