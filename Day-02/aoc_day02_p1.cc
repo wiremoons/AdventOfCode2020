@@ -32,7 +32,7 @@
 /// @param line : the line of text read from the puzzle input file
 /// @ return the extracted password string
 
-const std::string getPasswordString(std::string &line)
+const std::string getPasswordString(std::string const &line)
 {
     std::string result{};
 
@@ -41,7 +41,7 @@ const std::string getPasswordString(std::string &line)
         return result;
     }
 
-    const size_t colon = line.find(':');
+    size_t const colon = line.find(':');
     if (colon not_eq std::string::npos) {
         return result = line.substr(colon + 2);
     }
@@ -51,7 +51,7 @@ const std::string getPasswordString(std::string &line)
 /// @brief Extract the policy elements from the input file line: '1-3 a: abcde'
 /// @param line : the line of text read from the puzzle input file
 /// @ return the extracted policy range as a number pair
-const std::pair<int, int> getPolicyPair(std::string &line)
+const std::pair<int, int> getPolicyPair(std::string const &line)
 {
     std::pair<int, int> result{};
 
@@ -60,8 +60,8 @@ const std::pair<int, int> getPolicyPair(std::string &line)
         return result;
     }
 
-    const size_t space = line.find_first_of(' ');
-    const size_t dash = line.find('-');
+    size_t const space = line.find_first_of(' ');
+    size_t const dash = line.find('-');
 
     if ((dash not_eq std::string::npos) and (space not_eq std::string::npos)) {
         try {
@@ -79,7 +79,7 @@ const std::pair<int, int> getPolicyPair(std::string &line)
 /// @brief Extract the policy elements from the input file line: '1-3 a: abcde'
 /// @param line : the line of text read from the puzzle input file
 /// @ return the extracted policy range as a number pair
-const char getPolicyValue(std::string &line)
+const char getPolicyValue(std::string const &line)
 {
     char result{};
 
@@ -88,10 +88,10 @@ const char getPolicyValue(std::string &line)
         return result;
     }
 
-    const size_t space = line.find_first_of(' ');
+    size_t const space = line.find_first_of(' ');
 
     if (space not_eq std::string::npos) {
-        const char result = line.at(space + 1);
+        char const result = line.at(space + 1);
         return result;
     }
     return result;
@@ -107,7 +107,7 @@ int main()
     std::ifstream input_file{};
 
     // start timer for overall execution
-    auto t1 = std::chrono::high_resolution_clock::now();
+    auto const t1 = std::chrono::high_resolution_clock::now();
 
     // Switch comments for 'test'  vs  'final' data file
     // input_file.open("./data/TEST-puzzle-input.txt", std::ios::in);
