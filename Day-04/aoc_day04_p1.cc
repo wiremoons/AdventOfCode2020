@@ -149,8 +149,8 @@ int main()
     input_file.close();
     std::exit(0);
 
-    // Part 01 TEST RESULT: 7
-    // Part 01 Answer : 247
+    // Part 01 TEST RESULT: 2
+    // Part 01 Answer : 219
 
     // EXECUTION OUTPUT:
     //
