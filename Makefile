@@ -5,7 +5,7 @@ default: all ;
 
 all: d1 d2 d3 d4 d5 d6 d7
 
-clean: d1-clean d2-clean d3-clean d5-clean d5-clean d6-clean d7-clean
+clean: d1-clean d2-clean d3-clean d3-clean d5-clean d5-clean d6-clean d7-clean
 
 d1:
 	make -C ./Day-01/
