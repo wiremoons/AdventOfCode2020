@@ -1,6 +1,6 @@
 /*
- * @file aoc_day05_p1.cc
- * @brief Advent of Code (AOC) 2020 Puzzle solution for:  Day 05 Part 01.
+ * @file aoc_day05_p2.cc
+ * @brief Advent of Code (AOC) 2020 Puzzle solution for:  Day 05 Part 02.
  *
  * @author Simon Rowe <simon@wiremoons.com>
  * @license open-source released under "MIT License"
@@ -13,9 +13,9 @@
 
 //
 // Build with:
-// clang++ -std=c++20 -Wall -o aoc_day05_p1 aoc_day05_p1.cc
+// clang++ -std=c++20 -Wall -o aoc_day05_p2 aoc_day05_p2.cc
 //   or
-// g++ -std=c++20 -Wall -o aoc_day05_p1 aoc_day05_p1.cc
+// g++ -std=c++20 -Wall -o aoc_day05_p2 aoc_day05_p2.cc
 //
 
 #include <algorithm>
@@ -86,28 +86,33 @@ int main()
     }
     // sort all the Seat ID to the largest number can be extracted for the answer
     std::sort(all_seat_ids.begin(), all_seat_ids.end());
-    answer = all_seat_ids.back();
+
+    // calculate our seat for Part 02 answer
+    auto seat_id =
+        std::adjacent_find(all_seat_ids.begin(), all_seat_ids.end(), [](auto l, auto r) { return r == l + 2; });
+    answer = *seat_id + 1;
 
     ///////////////////////////////////////////////////////////////////////////////
-    std::cout << std::endl << "Advent Of Code 2020 :  Day 05 Part 01" << '\n' << '\n';
+    std::cout << std::endl << "Advent Of Code 2020 :  Day 05 Part 02" << '\n' << '\n';
     std::cout << "  » Number of line entries analysed : '" << line_number << "'." << '\n';
-    std::cout << "  » PUZZLE ANSWER: the highest seat ID on a boarding pass is : " << answer << '\n' << std::endl;
+    std::cout << "  » PUZZLE ANSWER: Your Seat ID is : " << answer << '\n' << std::endl;
 
     input_file.close();
     std::exit(0);
 
-    // Part 01 TEST RESULT: 820
+    // Part 02 TEST RESULT: 1
     //      BFFFBBF RRR: row 70, column 7, seat ID 567.
     //      FFFBBBFRRR: row 14, column 7, seat ID 119.
     //      BBFFBBFRLL: row 102, column 4, seat ID 820.
-    // Part 01 Answer : 965
+    // Part 02 Answer : 727
 
     // EXECUTION OUTPUT:
     //
-    // % ./aoc_day05_p1
+    // % ./aoc_day05_p2
     //
-    // Advent Of Code 2020 :  Day 05 Part 01
+    // Advent Of Code 2020 :  Day 05 Part 02
     //
     //   » Number of line entries analysed : '965'.
-    //   » PUZZLE ANSWER: the highest seat ID on a boarding pass is : 978
+    //   » PUZZLE ANSWER: Your Seat ID is : 727
+    //
 }
