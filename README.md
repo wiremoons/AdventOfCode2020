@@ -15,6 +15,8 @@ Below links to each days puzzle I have solved so far:
   [Day Three - Part 2 solved with C++](./Day-03/aoc_day03_p2.cc)
 - [Day Four - Part 1 solved with C++](./Day-04/aoc_day04_p1.cc) and
   [Day Four - Part 2 solved with C++](./Day-04/aoc_day04_p2.cc)
+- [Day Five - Part 1 solved with C++](./Day-05/aoc_day05_p1.cc) and
+  [Day Five - Part 2 solved with C++](./Day-05/aoc_day05_p2.cc)
 
 ## License
 
